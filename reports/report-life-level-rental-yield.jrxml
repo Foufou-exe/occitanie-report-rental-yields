@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.21.2.final using JasperReports Library version 6.21.2-8434a0bd7c3bbc37cbf916f2968d35e4b165821a  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report-commune-rental-yield" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="01734009-8d31-4331-9434-0bd05080726b">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="rental-yield-db"/>
+	<style name="Title" hTextAlign="Justified" pattern="" fontSize="22" isBold="true"/>
+	<style name="Subtitle" fontSize="16"/>
+	<style name="Footer Text" fontSize="10"/>
+	<subDataset name="dataset-rental-yield-by-dep" uuid="dcd26b84-3875-44b5-b4be-e463ce4c376d">
+		<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="rental-yield-db"/>
+		<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="196"/>
+		<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="797"/>
+		<parameter name="CODE_DEPARTMENT_SUB" class="java.lang.String"/>
+		<queryString language="SQL">
+			<![CDATA[SELECT 
+    insee_dep AS CODE_DEPARTEMENT, 
+    SUM(population) AS NOMBRE_HABITANTS_DEP,
+    ROUND(AVG(rendement_locatif_appart_m2), 2) AS RENDEMENT_LOCATIF_M2_APPART_DEP,
+    ROUND(AVG(rendement_locatif_maison_m2), 2) AS RENDEMENT_LOCATIF_M2_MAISON_DEP,
+    ROUND(AVG(life_level), 2) AS REVENUE_MEDIAN_MENAGE_DEP
+FROM rendement_locatif_communes rlc
+LEFT JOIN niveau_vie_communes nvc ON nvc.insee_com = rlc.insee_com
+WHERE insee_reg = '76'
+GROUP BY insee_dep
+ORDER BY REVENUE_MEDIAN_MENAGE_DEP ASC]]>
+		</queryString>
+		<field name="CODE_DEPARTEMENT" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="insee_dep"/>
+			<property name="com.jaspersoft.studio.field.label" value="CODE_DEPARTEMENT"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="rendement_locatif_communes"/>
+		</field>
+		<field name="NOMBRE_HABITANTS_DEP" class="java.math.BigDecimal">
+			<property name="com.jaspersoft.studio.field.name" value="NOMBRE_HABITANTS_DEP"/>
+			<property name="com.jaspersoft.studio.field.label" value="NOMBRE_HABITANTS_DEP"/>
+		</field>
+		<field name="RENDEMENT_LOCATIF_M2_APPART_DEP" class="java.lang.Double">
+			<property name="com.jaspersoft.studio.field.name" value="RENDEMENT_LOCATIF_M2_APPART_DEP"/>
+			<property name="com.jaspersoft.studio.field.label" value="RENDEMENT_LOCATIF_M2_APPART_DEP"/>
+		</field>
+		<field name="RENDEMENT_LOCATIF_M2_MAISON_DEP" class="java.lang.Double">
+			<property name="com.jaspersoft.studio.field.name" value="RENDEMENT_LOCATIF_M2_MAISON_DEP"/>
+			<property name="com.jaspersoft.studio.field.label" value="RENDEMENT_LOCATIF_M2_MAISON_DEP"/>
+		</field>
+		<field name="REVENUE_MEDIAN_MENAGE_DEP" class="java.math.BigDecimal">
+			<property name="com.jaspersoft.studio.field.name" value="REVENUE_MEDIAN_MENAGE_DEP"/>
+			<property name="com.jaspersoft.studio.field.label" value="REVENUE_MEDIAN_MENAGE_DEP"/>
+		</field>
+	</subDataset>
+	<queryString language="SQL">
+		<![CDATA[SELECT * FROM  jasper_report_rental_yield.rendement_locatif_communes]]>
+	</queryString>
+	<field name="id" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="id"/>
+		<property name="com.jaspersoft.studio.field.label" value="id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="rendement_locatif_communes"/>
+	</field>
+	<field name="insee_com" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="insee_com"/>
+		<property name="com.jaspersoft.studio.field.label" value="insee_com"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="rendement_locatif_communes"/>
+	</field>
+	<field name="insee_dep" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="insee_dep"/>
+		<property name="com.jaspersoft.studio.field.label" value="insee_dep"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="rendement_locatif_communes"/>
+	</field>
+	<field name="insee_reg" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="insee_reg"/>
+		<property name="com.jaspersoft.studio.field.label" value="insee_reg"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="rendement_locatif_communes"/>
+	</field>
+	<field name="nom_commune" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nom_commune"/>
+		<property name="com.jaspersoft.studio.field.label" value="nom_commune"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="rendement_locatif_communes"/>
+	</field>
+	<field name="population" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="population"/>
+		<property name="com.jaspersoft.studio.field.label" value="population"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="rendement_locatif_communes"/>
+	</field>
+	<field name="nb_ventes" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="nb_ventes"/>
+		<property name="com.jaspersoft.studio.field.label" value="nb_ventes"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="rendement_locatif_communes"/>
+	</field>
+	<field name="prix_moyen_m2" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="prix_moyen_m2"/>
+		<property name="com.jaspersoft.studio.field.label" value="prix_moyen_m2"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="rendement_locatif_communes"/>
+	</field>
+	<field name="prix_loyer_m2_maison" class="java.lang.Float">
+		<property name="com.jaspersoft.studio.field.name" value="prix_loyer_m2_maison"/>
+		<property name="com.jaspersoft.studio.field.label" value="prix_loyer_m2_maison"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="rendement_locatif_communes"/>
+	</field>
+	<field name="prix_loyer_m2_appart" class="java.lang.Float">
+		<property name="com.jaspersoft.studio.field.name" value="prix_loyer_m2_appart"/>
+		<property name="com.jaspersoft.studio.field.label" value="prix_loyer_m2_appart"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="rendement_locatif_communes"/>
+	</field>
+	<field name="rendement_locatif_appart_m2" class="java.lang.Float">
+		<property name="com.jaspersoft.studio.field.name" value="rendement_locatif_appart_m2"/>
+		<property name="com.jaspersoft.studio.field.label" value="rendement_locatif_appart_m2"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="rendement_locatif_communes"/>
+	</field>
+	<field name="rendement_locatif_maison_m2" class="java.lang.Float">
+		<property name="com.jaspersoft.studio.field.name" value="rendement_locatif_maison_m2"/>
+		<property name="com.jaspersoft.studio.field.label" value="rendement_locatif_maison_m2"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="rendement_locatif_communes"/>
+	</field>
+	<group name="Content 1">
+		<groupFooter>
+			<band height="322">
+				<frame>
+					<reportElement x="0" y="0" width="554" height="50" uuid="3f37a734-8354-435b-80c1-ce87e32b87e2"/>
+					<staticText>
+						<reportElement style="Subtitle" x="0" y="0" width="554" height="30" uuid="78700eec-0ccd-4e93-bc4a-95b5d3f79c99"/>
+						<textElement textAlignment="Left" verticalAlignment="Middle"/>
+						<text><![CDATA[Rapport entre revenu médian ménages et  RL. maison au M² par département]]></text>
+					</staticText>
+					<staticText>
+						<reportElement style="Subtitle" x="0" y="20" width="220" height="30" uuid="17dd3933-18f2-4985-9284-3d330326a15a"/>
+						<textElement textAlignment="Left" verticalAlignment="Middle">
+							<font size="12"/>
+						</textElement>
+						<text><![CDATA[Nuage de points - Région Occitanie]]></text>
+					</staticText>
+				</frame>
+				<scatterChart>
+					<chart isShowLegend="false" evaluationTime="Report">
+						<reportElement x="0" y="70" width="554" height="220" uuid="04336923-f9e7-4bb4-aca4-dc1eb185a1ca"/>
+						<chartTitle/>
+						<chartSubtitle/>
+						<chartLegend/>
+					</chart>
+					<xyDataset>
+						<dataset>
+							<datasetRun subDataset="dataset-rental-yield-by-dep" uuid="3af11fad-37ac-42a5-baad-db16f7290e91">
+								<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+							</datasetRun>
+						</dataset>
+						<xySeries>
+							<seriesExpression><![CDATA["SERIES 1"]]></seriesExpression>
+							<xValueExpression><![CDATA[$F{REVENUE_MEDIAN_MENAGE_DEP}]]></xValueExpression>
+							<yValueExpression><![CDATA[$F{RENDEMENT_LOCATIF_M2_MAISON_DEP}]]></yValueExpression>
+							<labelExpression><![CDATA[$F{CODE_DEPARTEMENT}]]></labelExpression>
+						</xySeries>
+					</xyDataset>
+					<scatterPlot>
+						<plot>
+							<seriesColor seriesOrder="0" color="#FFD900"/>
+						</plot>
+						<xAxisLabelExpression><![CDATA["Revenu médian ménage"]]></xAxisLabelExpression>
+						<xAxisFormat>
+							<axisFormat labelColor="#000000" tickLabelColor="#000000" verticalTickLabels="true" axisLineColor="#000000"/>
+						</xAxisFormat>
+						<yAxisLabelExpression><![CDATA["RL. maison par M²"]]></yAxisLabelExpression>
+						<yAxisFormat>
+							<axisFormat labelColor="#000000" tickLabelColor="#000000" axisLineColor="#000000"/>
+						</yAxisFormat>
+					</scatterPlot>
+				</scatterChart>
+			</band>
+		</groupFooter>
+	</group>
+	<group name="Content 2">
+		<groupFooter>
+			<band height="262">
+				<scatterChart>
+					<chart isShowLegend="false" evaluationTime="Report">
+						<reportElement x="0" y="20" width="554" height="220" uuid="eff92af9-598d-4b4b-9528-526262802349"/>
+						<chartTitle/>
+						<chartSubtitle/>
+						<chartLegend/>
+					</chart>
+					<xyDataset>
+						<dataset>
+							<datasetRun subDataset="dataset-rental-yield-by-dep" uuid="3e4879dc-6db4-4dcf-a94a-9dbd6da72716"/>
+						</dataset>
+						<xySeries>
+							<seriesExpression><![CDATA["SERIES 1"]]></seriesExpression>
+							<xValueExpression><![CDATA[$F{REVENUE_MEDIAN_MENAGE_DEP}]]></xValueExpression>
+							<yValueExpression><![CDATA[$F{RENDEMENT_LOCATIF_M2_APPART_DEP}]]></yValueExpression>
+							<labelExpression><![CDATA[$F{CODE_DEPARTEMENT}]]></labelExpression>
+						</xySeries>
+					</xyDataset>
+					<scatterPlot>
+						<plot>
+							<seriesColor seriesOrder="0" color="#FFD900"/>
+						</plot>
+						<xAxisLabelExpression><![CDATA["Revenu médian ménage"]]></xAxisLabelExpression>
+						<xAxisFormat>
+							<axisFormat labelColor="#000000" tickLabelColor="#000000" verticalTickLabels="true" axisLineColor="#000000"/>
+						</xAxisFormat>
+						<yAxisLabelExpression><![CDATA["RL. appartement par M²"]]></yAxisLabelExpression>
+						<yAxisFormat>
+							<axisFormat labelColor="#000000" tickLabelColor="#000000" axisLineColor="#000000"/>
+						</yAxisFormat>
+					</scatterPlot>
+				</scatterChart>
+			</band>
+		</groupFooter>
+	</group>
+	<title>
+		<band height="80" splitType="Stretch">
+			<frame>
+				<reportElement x="0" y="0" width="555" height="80" uuid="1e58087c-90c0-4307-9f9a-19041b73189e"/>
+				<staticText>
+					<reportElement style="Title" x="60" y="4" width="475" height="30" uuid="764e75df-8881-49f0-8a36-a6928f262747"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle"/>
+					<text><![CDATA[Rapport niveau de vie — Rendement locatif]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Subtitle" x="60" y="27" width="475" height="30" uuid="d171232e-5711-4f8f-8153-59a8ba67843b"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle"/>
+					<text><![CDATA[Région Occitanie]]></text>
+				</staticText>
+				<image>
+					<reportElement x="0" y="5" width="50" height="50" uuid="298e5c4e-e980-4d86-931a-67d530953b2d"/>
+					<imageExpression><![CDATA["/images/logo-occitanie.png"]]></imageExpression>
+				</image>
+				<line>
+					<reportElement x="0" y="70" width="555" height="1" uuid="121fa135-d589-4496-afda-03cdc6944f16"/>
+					<graphicElement>
+						<pen lineWidth="2.0" lineColor="#C80106"/>
+					</graphicElement>
+				</line>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="58" splitType="Stretch">
+			<frame>
+				<reportElement x="0" y="0" width="554" height="50" uuid="bfe88d42-cc60-46e0-88dc-1357de218510"/>
+				<staticText>
+					<reportElement style="Subtitle" x="0" y="0" width="554" height="30" uuid="55e23e3e-3f98-4713-b55e-921588cc8b96"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle"/>
+					<text><![CDATA[Rapport entre revenu médian ménages et  RL. appart au M² par département]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Subtitle" x="0" y="20" width="230" height="30" uuid="754694b4-66af-4bfb-b900-6f8d8d0b8d4d"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[Nuage de points - Région Occitanie]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</pageHeader>
+	<pageFooter>
+		<band height="35" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="555" height="22" forecolor="#05C5FF" backcolor="#C80106" uuid="2f6709f7-c893-47af-a8eb-c27b6fdda14a"/>
+				<frame>
+					<reportElement x="476" y="0" width="76" height="22" uuid="c15f5405-55ff-4129-b88c-a4a5507b919a"/>
+					<textField>
+						<reportElement style="Footer Text" x="-4" y="0" width="60" height="22" forecolor="#FFFFFF" uuid="c663e85b-7a67-4b36-9e74-9a9580c35d0f"/>
+						<textElement textAlignment="Right" verticalAlignment="Middle">
+							<font size="10" isBold="false"/>
+						</textElement>
+						<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" sur "]]></textFieldExpression>
+					</textField>
+					<textField evaluationTime="Report">
+						<reportElement style="Footer Text" x="54" y="0" width="20" height="22" forecolor="#FFFFFF" uuid="3481134b-958c-4c68-b2fc-3317339eb060"/>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font size="10" isBold="false"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+					</textField>
+				</frame>
+				<frame>
+					<reportElement x="0" y="0" width="100" height="22" uuid="0fe44daf-7c14-41e5-847a-ee55ed013a87"/>
+					<textField pattern="M/d/yy h:mm a">
+						<reportElement style="Footer Text" x="0" y="0" width="100" height="22" forecolor="#FFFFFF" uuid="80d83f77-af4a-4e28-8da6-5870c9391882"/>
+						<box topPadding="0" leftPadding="0"/>
+						<textElement textAlignment="Center" verticalAlignment="Middle"/>
+						<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+					</textField>
+				</frame>
+				<frame>
+					<reportElement x="270" y="0" width="20" height="22" uuid="0c9257a3-64df-4d22-a3aa-e9f8ee2ed1d5"/>
+					<image>
+						<reportElement x="0" y="0" width="20" height="22" uuid="3acd175c-d776-4731-be9e-50e492376869"/>
+						<box topPadding="3" leftPadding="2" bottomPadding="2" rightPadding="2"/>
+						<imageExpression><![CDATA["/images/logo-occitanie-without-bg.png"]]></imageExpression>
+					</image>
+				</frame>
+			</frame>
+		</band>
+	</pageFooter>
+</jasperReport>

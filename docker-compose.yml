@@ -1,0 +1,42 @@
+version: "3.8"
+services:
+    ###
+    ### MYSQL
+    ###
+    mysql:
+        container_name: "jasper-report-mysql"
+        image: "mysql:latest"
+        restart: unless-stopped
+        volumes:
+            - jasper-report-mysql-data:/var/lib/mysql
+            - ./sources/sql/init_bdd.sql:/docker-entrypoint-initdb.d/init.sql #TODO: A commenter si on utilise la ligne en dessous / To comment if you use the line below
+            # - ./sources/sql/processed-data.sql.sql:/docker-entrypoint-initdb.d/init.sql #TODO: Si on veut avoir directement les données dans la base de données sans exécuter le script python / If you want to get the data directly from the database without running the python script
+        environment:
+            MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+        ports:
+            - "3306:3306"
+        networks:
+            - "jasper-report-network"
+    ###
+    ### PHPMYADMIN
+    ###
+    phpmyadmin:
+        container_name: "jasper-report-phpmyadmin"
+        image: "phpmyadmin:latest"
+        restart: unless-stopped
+        depends_on:
+            - mysql
+        environment:
+            PMA_HOST: mysql
+        ports:
+            - "8080:80"
+        networks:
+            - "jasper-report-network"
+
+networks:
+    jasper-report-network:
+        driver: "bridge"
+        name: "jasper-report-network"
+
+volumes:
+    jasper-report-mysql-data:

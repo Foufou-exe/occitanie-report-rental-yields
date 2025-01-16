@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<jdbcDataAdapter class="net.sf.jasperreports.data.jdbc.JdbcDataAdapterImpl">
+	<name>DataAdapterMySQL</name>
+	<classpath>F:\Developpement\Cours\VISUALISATION\occitanie-report-rental-yields\reports\driver\mysql-connector-j-9.1.0\mysql-connector-j-9.1.0.jar</classpath>
+	<driver>com.mysql.jdbc.Driver</driver>
+	<username>root</username>
+	<password></password>
+	<url>jdbc:mysql://localhost/jasper_report_rental_yield</url>
+	<database></database>
+	<savePassword>true</savePassword>
+	<serverAddress></serverAddress>
+	<autoCommit>false</autoCommit>
+	<readOnly>false</readOnly>
+</jdbcDataAdapter>
