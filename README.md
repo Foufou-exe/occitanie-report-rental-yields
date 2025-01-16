@@ -32,7 +32,7 @@ This project aims to provide a detailed and visual analysis of high rental yield
 
 ## 📁 Project structure
 
-- Settings: JasperReports configuration parameters.
+- **`/.settings`**: JasperReports configuration parameters.
 - **`/images`**: Logos and images used in reports.
 - **`/reports`** : JRXML files for Jasper reports.
 - **/reports/driver`** : JDBC drivers for MySQL.
@@ -46,15 +46,15 @@ This project aims to provide a detailed and visual analysis of high rental yield
 ## 🛠️ Technologies used
 
 ### Reporting tools:
-- Jaspersoft Studio**: Creation of professional reports.
+- **Jaspersoft Studio**: Creation of professional reports.
 
 ### Data collection and transformation:
-- Python**: Pandas, Numpy, SQLAlchemy.
-- Power Query**: Data profiling.
+- **Python**: Pandas, Numpy, SQLAlchemy.
+- **Power Query**: Data profiling.
 
 ### Database:
-- MySQL**: Storage of cleansed data.
-- Docker**: Container management for MySQL and phpMyAdmin.
+- **MySQL**: Storage of cleansed data.
+- **Docker**: Container management for MySQL and phpMyAdmin.
 
 
 ## 📊 Reports available
@@ -80,12 +80,13 @@ This project aims to provide a detailed and visual analysis of high rental yield
    git clone https://github.com/Foufou-exe/occitanie-report-rental-yields.git
    ```
 2. Configure and launch the Docker containers:
-   ````bash
+   ```bash
    docker-compose up -d
    ```
 3. Run the Python scripts to clean up and insert the data into MySQL:
    ```bash
    cd scripts
+   pip install -r requirements.txt
    python import-csv-to-sql.py
    ```
 4. Launch Jaspersoft Studio.
