@@ -35,7 +35,7 @@ This project aims to provide a detailed and visual analysis of high rental yield
 - **`/.settings`**: JasperReports configuration parameters.
 - **`/images`**: Logos and images used in reports.
 - **`/reports`** : JRXML files for Jasper reports.
-- **/reports/driver`** : JDBC drivers for MySQL.
+- **`/reports/driver`** : JDBC drivers for MySQL.
 - **`/reports/rendered`**: Reports generated in PDF format.
 - **`/scripts`** : Python scripts for data cleansing and transformation.
 - **`/sources/original`**: CSV/XLSX source files used for analysis and transformation.
