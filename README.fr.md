@@ -69,9 +69,9 @@ Ce projet a pour objectif de fournir une analyse détaillée et visuelle des zon
 
 ### Prérequis
 
-- Docker et Docker Compose installés.
-- Jaspersoft Studio.
-- Python 3.x avec les bibliothèques suivantes : Pandas, Numpy, SQLAlchemy.
+- **Docker** et **Docker Compose** installés.
+- **Jaspersoft Studio**
+- **Python 3.x** avec les bibliothèques suivantes : **Pandas, Numpy, SQLAlchemy.**
 
 ### Étapes d'installation
 
@@ -143,6 +143,6 @@ Ce projet a pour objectif de fournir une analyse détaillée et visuelle des zon
 </details>
 
 ## Auteurs
-- **Maurras Thibaut**
-- **Akkhaladeth SOULISOMPHOU**
+- **[Maurras Thibaut](https://github.com/Foufou-exe)**
+- **[Akkhaladeth SOULISOMPHOU](https://github.com/Akkha-47)**
 

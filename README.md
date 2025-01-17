@@ -23,10 +23,10 @@
 This project aims to provide a detailed and visual analysis of high rental yield areas in the Occitanie region. Using **Jaspersoft Studio** for reporting and technologies such as **Python** and **MySQL**, we created several reports allowing a real estate investor to identify the best investment opportunities.
 
 ## ⚡ Key features
-- Data collection**: Extraction of open data (from [data.gouv.fr](https://www.data.gouv.fr)) on rents, purchase prices, demographics, and household incomes.
-- Data cleansing and transformation**: Use of **Python** (with Pandas, Numpy and SQLAlchemy) to cleanse, transform and insert data into a **MySQL** database.
-- Visual reporting**: Creating attractive, interactive reports in Jaspersoft Studio using graphs (bars, scatterplots, pie charts).
-- Advanced analysis** :
+- **Data collection**: Extraction of open data (from [data.gouv.fr](https://www.data.gouv.fr)) on rents, purchase prices, demographics, and household incomes.
+- **Data cleansing and transformation**: Use of **Python** (with Pandas, Numpy and SQLAlchemy) to cleanse, transform and insert data into a **MySQL** database.
+- **Visual reporting**: Creating attractive, interactive reports in Jaspersoft Studio using graphs (bars, scatterplots, pie charts).
+- **Advanced analysis** :
   - Correlation between demographics and rental yields.
   - Comparison of household incomes with rental yields.
 
@@ -69,9 +69,9 @@ This project aims to provide a detailed and visual analysis of high rental yield
 
 ### Prerequisites
 
-- Docker and Docker Compose installed.
-- Jaspersoft Studio.
-- Python 3.x with the following libraries: Pandas, Numpy, SQLAlchemy.
+- **Docker** and **Docker Compose** installed.
+- **Jaspersoft Studio**
+- **Python 3.x** with the following libraries: **Pandas, Numpy, SQLAlchemy**
 
 ### Installation steps
 
@@ -92,7 +92,7 @@ This project aims to provide a detailed and visual analysis of high rental yield
 4. Launch Jaspersoft Studio.
 5. Import the JRXML files + the MySQL JDBC connector `DataAdapterMySQL.jrdax` from **/reports`**.
 6. Configure the connection to the MySQL database.
-7. **Generate reports and view rental yields in Occitanie!
+7. **Generate reports and view rental yields in Occitanie!**
 
 
 ## 📖 Data sources
@@ -144,6 +144,7 @@ This project aims to provide a detailed and visual analysis of high rental yield
 </details>
 
 ## Authors
-- **Thibaut Maurras**
-- **Akkhaladeth SOULISOMPHOU**
+- **[Maurras Thibaut](https://github.com/Foufou-exe)**
+- **[Akkhaladeth SOULISOMPHOU](https://github.com/Akkha-47)**
+
 
